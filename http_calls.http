@@ -1,0 +1,18 @@
+
+
+###
+POST http://localhost:8000/api/auth/login HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "test@ohcsf.gov.ng",
+    "password": "password"
+}
+
+###
+GET http://localhost:8000/api/branches/by-source?source=Ministry&relation_id=1
+Authorization: Bearer 5|WUrDOR17kh8Av5aL5kzTo3Is4nbepaYhLq3QPAmo4828d1e2
+Content-Type: application/json
+Accept: application/json
+

@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class GradeLevelResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     */
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'cadre_id' => $this->cadre_id,
+            'cadre' => CadreResource::make($this->whenLoaded('cadre')),
+            'deployments' => DeploymentCollection::make($this->whenLoaded('deployments')),
+        ];
+    }
+}
